@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -34,7 +35,7 @@ import {
   Sparkles,
   Loader2,
 } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import { dataService, type ReturnWithDetails, type DashboardMetrics } from "@/lib/data-service"
 
 export default function AdminDashboard() {

@@ -1,3 +1,4 @@
+
 "use client"
 
 import type React from "react"
@@ -10,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2, RefreshCw } from "lucide-react"
 import { supabase } from "@/lib/supabase"
-import { useToast } from "@/hooks/use-toast"
+import { useToast } from "@/components/ui/use-toast"
 import Link from "next/link"
 
 export default function AuthPage() {
