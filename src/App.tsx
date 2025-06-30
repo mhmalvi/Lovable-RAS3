@@ -1,9 +1,8 @@
 
-
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '../lib/auth-context'
-import { Toaster } from '../../components/ui/toaster'
+import { Toaster } from '../components/ui/toaster'
 
 // Import pages
 import HomePage from './pages/HomePage'
@@ -33,4 +32,3 @@ function App() {
 }
 
 export default App
-
