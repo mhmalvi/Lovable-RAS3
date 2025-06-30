@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { useAuth } from '@/lib/auth-context'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card'
+import { Badge } from '../../components/ui/badge'
+import { Button } from '../../components/ui/button'
+import { useAuth } from '../../lib/auth-context'
 import { Loader2, Package, Users, TrendingUp, DollarSign } from 'lucide-react'
 
 interface DashboardStats {
