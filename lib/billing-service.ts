@@ -1,10 +1,9 @@
-
 import Stripe from "stripe"
 import { createServerClient } from "./supabase"
 import type { Merchant } from "./types"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2024-11-20.acacia",
+  apiVersion: "2023-10-16",
 })
 
 export interface SubscriptionPlan {
@@ -117,7 +116,7 @@ export class BillingService {
         expand: ["latest_invoice.payment_intent"],
       })
 
-      // Update billing record
+      // Update billing record with proper property access
       await this.supabase.from("billing_records").upsert({
         merchant_id: merchantId,
         plan_type: planId,
