@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { ThemeProvider } from '@/components/theme-provider'
-import { AuthProvider } from '@/lib/auth-context'
+import { AuthProvider } from '../lib/auth-context'
 import { Toaster } from '@/components/ui/toaster'
 
 // Import pages
