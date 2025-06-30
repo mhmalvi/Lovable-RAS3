@@ -28,6 +28,16 @@ export interface DashboardMetrics {
   revenueSavedChange: number
 }
 
+export interface Merchant {
+  id: string
+  shop_domain: string
+  name: string
+  access_token: string
+  webhook_verified: boolean
+  created_at: string
+  updated_at: string
+}
+
 export const dataService = {
   async getDashboardMetrics(merchantId: string): Promise<DashboardMetrics> {
     return {
@@ -56,5 +66,34 @@ export const dataService = {
 
   async updateReturnStatus(returnId: string, status: string, merchantId: string): Promise<boolean> {
     return true
+  },
+
+  async getMerchant(merchantId: string): Promise<Merchant | null> {
+    // Mock data for demo
+    return {
+      id: merchantId,
+      shop_domain: "demo-store.myshopify.com",
+      name: "Demo Store",
+      access_token: "demo_token",
+      webhook_verified: true,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }
+  },
+
+  async getMerchantByDomain(domain: string): Promise<Merchant | null> {
+    // Mock data for demo
+    if (domain === "demo-store") {
+      return {
+        id: "550e8400-e29b-41d4-a716-446655440000",
+        shop_domain: "demo-store.myshopify.com",
+        name: "Demo Store",
+        access_token: "demo_token",
+        webhook_verified: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }
+    }
+    return null
   }
 }

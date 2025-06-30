@@ -5,7 +5,7 @@ import type React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 import type { User } from "@supabase/supabase-js"
 import { supabase } from "@/lib/supabase"
-import { useRouter } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 interface AuthUser {
   id: string
@@ -28,7 +28,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null)
   const [loading, setLoading] = useState(true)
-  const router = useRouter()
+  const navigate = useNavigate()
 
   const checkDemoSession = () => {
     if (typeof window === "undefined") return null
@@ -91,7 +91,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       })
       
       if (!error) {
-        router.push("/admin")
+        navigate("/admin")
       }
       
       return { error }
@@ -161,7 +161,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       await supabase.auth.signOut()
 
       setUser(null)
-      router.push("/auth")
+      navigate("/auth")
     } catch (error) {
       console.error("Error signing out:", error)
     }
