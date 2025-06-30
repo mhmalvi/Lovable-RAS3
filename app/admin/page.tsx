@@ -116,10 +116,6 @@ export default function AdminPage() {
   const loadData = async () => {
     setLoading(true)
     try {
-      // Simulate API calls
-      // const metricsData = await dataService.getDashboardMetrics()
-      // const returnsData = await dataService.getReturns()
-      // setMetrics(metricsData)
       setMetrics(dashboardMetrics)
       setReturns(returnsData)
     } catch (error) {
@@ -168,7 +164,7 @@ export default function AdminPage() {
   }
 
   if (!user) {
-    return null // Handle unauthorized state appropriately
+    return null
   }
 
   return (
@@ -246,6 +242,7 @@ export default function AdminPage() {
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
           </TabsList>
+          
           <TabsContent value="returns" className="space-y-4">
             {/* Returns Table */}
             <div className="flex items-center justify-between">
@@ -371,16 +368,14 @@ export default function AdminPage() {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {
-                          [
-                            { name: "Defective", value: 40 },
-                            { name: "Wrong Size", value: 30 },
-                            { name: "Changed Mind", value: 20 },
-                            { name: "Other", value: 10 },
-                          ].map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                          ))
-                        }
+                        {[
+                          { name: "Defective", value: 40 },
+                          { name: "Wrong Size", value: 30 },
+                          { name: "Changed Mind", value: 20 },
+                          { name: "Other", value: 10 },
+                        ].map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
                       </Pie>
                       <Tooltip />
                     </PieChart>
